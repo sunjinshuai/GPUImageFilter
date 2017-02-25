@@ -32,20 +32,8 @@ static NSString * const reuseIdentifier = @"AlbumFiterViewCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *thumbnailImage = [UIImage imageNamed:@"maomao"];
-    
-    for (int i = 0; i < 14; i++) {
-        AlbumFiterModel *fiter = [[AlbumFiterModel alloc] init];
-        GPUImageColormatrixFilterType filterType = [[AlbumFilterUtil sharedInstance] colormatrixFilterTypeByIndex:i];
-        fiter.thumbnailName = [[AlbumFilterUtil sharedInstance] getFilterName:filterType];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImage *tempThumbnailImage = [[AlbumFilterUtil sharedInstance] imageByFilteringImage:thumbnailImage filterType:filterType];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                fiter.thumbnailImage = tempThumbnailImage;
-            });
-        });
-        [self.albumFiterImages addObject:fiter];
-    }
+    // 初始化
+    [self initialization];
     
     [self.view addSubview:self.imageView];
     [self.view addSubview:self.collectionView];
@@ -77,7 +65,35 @@ static NSString * const reuseIdentifier = @"AlbumFiterViewCellIdentifier";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-   
+    UIImage *albumFiterImage = [UIImage imageNamed:@"maomao"];
+    
+    self.imageView.image = [self renderEditAfterAlbumImage:albumFiterImage didSelectItemAtIndex:indexPath.row];
+}
+
+// 渲染图片
+- (UIImage *)renderEditAfterAlbumImage:(UIImage *)albumImage didSelectItemAtIndex:(NSInteger)filterImageIndex {
+    
+    GPUImageColormatrixFilterType filterType = [[AlbumFilterUtil sharedInstance] colormatrixFilterTypeByIndex:filterImageIndex];
+    return [[AlbumFilterUtil sharedInstance] imageByFilteringImage:albumImage filterType:filterType];
+}
+
+#pragma mark -
+- (void)initialization {
+    
+    UIImage *thumbnailImage = [UIImage imageNamed:@"maomao"];
+    for (int i = 0; i < 14; i++) {
+        AlbumFiterModel *fiter = [[AlbumFiterModel alloc] init];
+        GPUImageColormatrixFilterType filterType = [[AlbumFilterUtil sharedInstance] colormatrixFilterTypeByIndex:i];
+        fiter.thumbnailName = [[AlbumFilterUtil sharedInstance] getFilterName:filterType];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            UIImage *tempThumbnailImage = [[AlbumFilterUtil sharedInstance] imageByFilteringImage:thumbnailImage filterType:filterType];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                fiter.thumbnailImage = tempThumbnailImage;
+                [self.albumFiterImages addObject:fiter];
+                [self.collectionView reloadData];
+            });
+        });
+    }
 }
 
 #pragma mark - Lazy Load
