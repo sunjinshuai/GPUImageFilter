@@ -1,6 +1,6 @@
 # GPUImageFilter
 
-![效果图](https://github.com/sunjinshuai/MYSementViewController/blob/master/MYSlideViewController.gif)
+![效果图](https://github.com/sunjinshuai/GPUImageFilter/blob/master/GPUImageFilter.gif)
 
 ===================================  
 
