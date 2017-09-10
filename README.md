@@ -1,12 +1,9 @@
 # GPUImageFilter
 
-![效果图](https://github.com/sunjinshuai/GPUImageFilter/blob/master/GPUImageFilter.gif)
-
-===================================  
-
 目前在项目中用到了滤镜处理，借助了GPUImage，感觉还行就把我的思路和制作过程写下来给大家分享一下。
-
 代码非常简单，通俗易懂。
+
+![效果图](https://github.com/sunjinshuai/GPUImageFilter/blob/master/GPUImageFilter.gif)
 
 ```
 typedef NS_ENUM(NSInteger, GPUImageColormatrixFilterType) {
