@@ -8,13 +8,13 @@
 ```
 typedef NS_ENUM(NSInteger, GPUImageColormatrixFilterType) {
     GPUImageColormatrixFilterTypeORI = 0,   // 原图
-    GPUImageColormatrixFilterTypeFUGU,      // 鲜亮
-    GPUImageColormatrixFilterTypeDANYA,     // 胶片
+    GPUImageColormatrixFilterTypeFUGU,      // 复古
+    GPUImageColormatrixFilterTypeDANYA,     // 淡雅
     GPUImageColormatrixFilterTypeHEIBAI,    // 黑白
     GPUImageColormatrixFilterTypeLANGMAN,   // 薄暮
-    GPUImageColormatrixFilterTypeJIUHONG,   // 美食
+    GPUImageColormatrixFilterTypeJIUHONG,   // 酒红
     GPUImageColormatrixFilterTypeRUISE,     // 流年
-    GPUImageColormatrixFilterTypeGETE,      // 暖暖
+    GPUImageColormatrixFilterTypeGETE,      // 哥特
     GPUImageColormatrixFilterTypeLANDIAO,   // 白露
     GPUImageColormatrixFilterTypeQINGNING,  // 少女
     GPUImageColormatrixFilterTypeGUANGYUN,  // 时光
@@ -23,7 +23,6 @@ typedef NS_ENUM(NSInteger, GPUImageColormatrixFilterType) {
     GPUImageColormatrixFilterTypeLOMO,      // 布拉格
 };
 ```
-
 ps:
 我是一个iOS的苦行僧，喜欢开源，平常也会在github上上传一些个人的项目，欢迎志同道合的朋友一起加入。
 另外，如果我封装的这个控制器能帮到你，就star一下吧。
