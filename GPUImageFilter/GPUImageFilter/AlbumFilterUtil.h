@@ -10,13 +10,13 @@
 
 typedef NS_ENUM(NSInteger, GPUImageColormatrixFilterType) {
     GPUImageColormatrixFilterTypeORI = 0,   // 原图
-    GPUImageColormatrixFilterTypeFUGU,      // 鲜亮
-    GPUImageColormatrixFilterTypeDANYA,     // 胶片
+    GPUImageColormatrixFilterTypeFUGU,      // 复古
+    GPUImageColormatrixFilterTypeDANYA,     // 淡雅
     GPUImageColormatrixFilterTypeHEIBAI,    // 黑白
     GPUImageColormatrixFilterTypeLANGMAN,   // 薄暮
-    GPUImageColormatrixFilterTypeJIUHONG,   // 美食
+    GPUImageColormatrixFilterTypeJIUHONG,   // 酒红
     GPUImageColormatrixFilterTypeRUISE,     // 流年
-    GPUImageColormatrixFilterTypeGETE,      // 暖暖
+    GPUImageColormatrixFilterTypeGETE,      // 哥特
     GPUImageColormatrixFilterTypeLANDIAO,   // 白露
     GPUImageColormatrixFilterTypeQINGNING,  // 少女
     GPUImageColormatrixFilterTypeGUANGYUN,  // 时光
