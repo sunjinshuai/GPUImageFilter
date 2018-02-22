@@ -84,8 +84,8 @@
         case GPUImageColormatrixFilterTypePrague:
             title = @"布拉格";
             break;
-        case GPUImageColormatrixFilterTypeHEIBAI:
-            title = @"黑白";
+        case GPUImageColormatrixFilterTypeDelicacy:
+            title = @"美食";
             break;
         case GPUImageColormatrixFilterTypeBright:
             title = @"鲜亮";
@@ -99,8 +99,8 @@
         case GPUImageColormatrixFilterTypeFilm:
             title = @"胶片";
             break;
-        case GPUImageColormatrixFilterTypeDelicacy:
-            title = @"美食";
+        case GPUImageColormatrixFilterTypeHEIBAI:
+            title = @"黑白";
             break;
         case GPUImageColormatrixFilterTypeGirl:
             title = @"少女";
@@ -140,7 +140,7 @@
         }
             break;
         case 2: {
-            filter = [[IFAmaroFilter alloc] init];
+            filter = [[IFInkwellFilter alloc] init];
         }
             break;
         case 3: {
@@ -160,7 +160,7 @@
         }
             break;
         case 7: {
-            filter = [[IFInkwellFilter alloc] init];
+            filter = [[IFAmaroFilter alloc] init];
         }
             break;
         case 8: {
