@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3233CBDA1E606F5400E9AE18 /* AlbumFiterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233CBD71E606F5400E9AE18 /* AlbumFiterModel.m */; };
 		3233CBDB1E606F5400E9AE18 /* AlbumFiterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233CBD91E606F5400E9AE18 /* AlbumFiterViewCell.m */; };
-		3233CBDE1E606F6800E9AE18 /* AlbumFilterUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233CBDD1E606F6800E9AE18 /* AlbumFilterUtil.m */; };
 		3233CC121E60702300E9AE18 /* GPUImage.InstagramFilter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3233CBE41E60702300E9AE18 /* GPUImage.InstagramFilter.bundle */; };
 		3233CC131E60702300E9AE18 /* IF1977Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233CBE61E60702300E9AE18 /* IF1977Filter.m */; };
 		3233CC141E60702300E9AE18 /* IFAmaroFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233CBE81E60702300E9AE18 /* IFAmaroFilter.m */; };
@@ -41,6 +40,7 @@
 		323AB2B81E60690A00E2D868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 323AB2B61E60690A00E2D868 /* LaunchScreen.storyboard */; };
 		323AB2C31E60690A00E2D868 /* GPUImageFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 323AB2C21E60690A00E2D868 /* GPUImageFilterTests.m */; };
 		323AB2CE1E60690A00E2D868 /* GPUImageFilterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 323AB2CD1E60690A00E2D868 /* GPUImageFilterUITests.m */; };
+		3299ECA4203EB62B00BE2B40 /* AlbumFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299ECA3203EB62B00BE2B40 /* AlbumFilterManager.m */; };
 		52D7AAA45B0A36C516167159 /* libPods-GPUImageFilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C516857405859634217C93 /* libPods-GPUImageFilter.a */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +67,6 @@
 		3233CBD71E606F5400E9AE18 /* AlbumFiterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumFiterModel.m; sourceTree = "<group>"; };
 		3233CBD81E606F5400E9AE18 /* AlbumFiterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumFiterViewCell.h; sourceTree = "<group>"; };
 		3233CBD91E606F5400E9AE18 /* AlbumFiterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumFiterViewCell.m; sourceTree = "<group>"; };
-		3233CBDC1E606F6800E9AE18 /* AlbumFilterUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumFilterUtil.h; sourceTree = "<group>"; };
-		3233CBDD1E606F6800E9AE18 /* AlbumFilterUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumFilterUtil.m; sourceTree = "<group>"; };
 		3233CBDF1E606FC800E9AE18 /* ColorConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorConstant.h; sourceTree = "<group>"; };
 		3233CBE41E60702300E9AE18 /* GPUImage.InstagramFilter.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GPUImage.InstagramFilter.bundle; sourceTree = "<group>"; };
 		3233CBE51E60702300E9AE18 /* IF1977Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IF1977Filter.h; sourceTree = "<group>"; };
@@ -132,6 +130,9 @@
 		323AB2C91E60690A00E2D868 /* GPUImageFilterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPUImageFilterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		323AB2CD1E60690A00E2D868 /* GPUImageFilterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageFilterUITests.m; sourceTree = "<group>"; };
 		323AB2CF1E60690A00E2D868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3299ECA1203EB5E000BE2B40 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		3299ECA2203EB62B00BE2B40 /* AlbumFilterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumFilterManager.h; sourceTree = "<group>"; };
+		3299ECA3203EB62B00BE2B40 /* AlbumFilterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumFilterManager.m; sourceTree = "<group>"; };
 		BA7CEE81D6A02E013C4C8FF7 /* Pods-GPUImageFilter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageFilter.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageFilter/Pods-GPUImageFilter.release.xcconfig"; sourceTree = "<group>"; };
 		EBA621FCB7E81FB5FE3D851A /* Pods-GPUImageFilter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageFilter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageFilter/Pods-GPUImageFilter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,9 +171,10 @@
 				3233CBD71E606F5400E9AE18 /* AlbumFiterModel.m */,
 				3233CBD81E606F5400E9AE18 /* AlbumFiterViewCell.h */,
 				3233CBD91E606F5400E9AE18 /* AlbumFiterViewCell.m */,
-				3233CBDC1E606F6800E9AE18 /* AlbumFilterUtil.h */,
-				3233CBDD1E606F6800E9AE18 /* AlbumFilterUtil.m */,
+				3299ECA2203EB62B00BE2B40 /* AlbumFilterManager.h */,
+				3299ECA3203EB62B00BE2B40 /* AlbumFilterManager.m */,
 				3233CBDF1E606FC800E9AE18 /* ColorConstant.h */,
+				3299ECA1203EB5E000BE2B40 /* Constant.h */,
 			);
 			path = GPUImageFilter;
 			sourceTree = "<group>";
@@ -517,6 +519,7 @@
 				323AB2AD1E60690A00E2D868 /* AppDelegate.m in Sources */,
 				3233CC131E60702300E9AE18 /* IF1977Filter.m in Sources */,
 				3233CC161E60702300E9AE18 /* IFEarlybirdFilter.m in Sources */,
+				3299ECA4203EB62B00BE2B40 /* AlbumFilterManager.m in Sources */,
 				3233CC231E60702300E9AE18 /* IFValenciaFilter.m in Sources */,
 				3233CC201E60702300E9AE18 /* IFSierraFilter.m in Sources */,
 				3233CC151E60702300E9AE18 /* IFBrannanFilter.m in Sources */,
@@ -525,7 +528,6 @@
 				323AB2AA1E60690A00E2D868 /* main.m in Sources */,
 				3233CC171E60702300E9AE18 /* IFHefeFilter.m in Sources */,
 				3233CC1E1E60702300E9AE18 /* IFNormalFilter.m in Sources */,
-				3233CBDE1E606F6800E9AE18 /* AlbumFilterUtil.m in Sources */,
 				3233CC251E60702300E9AE18 /* IFXproIIFilter.m in Sources */,
 				3233CC241E60702300E9AE18 /* IFWaldenFilter.m in Sources */,
 				3233CC1D1E60702300E9AE18 /* IFNashvilleFilter.m in Sources */,

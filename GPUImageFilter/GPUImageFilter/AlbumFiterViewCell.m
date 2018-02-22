@@ -8,10 +8,8 @@
 
 #import "AlbumFiterViewCell.h"
 #import "AlbumFiterModel.h"
+#import "Constant.h"
 #import <Masonry.h>
-
-//self弱引用
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 @interface AlbumFiterViewCell ()
 

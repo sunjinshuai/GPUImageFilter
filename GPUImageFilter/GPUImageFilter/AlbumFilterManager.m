@@ -1,74 +1,72 @@
 //
-//  AlbumFilterUtil.m
+//  AlbumFilterManager.m
 //  GPUImageFilter
 //
-//  Created by 孙金帅 on 2017/2/24.
-//  Copyright © 2017年 孙金帅. All rights reserved.
+//  Created by sunjinshuai on 2018/2/22.
+//  Copyright © 2018年 孙金帅. All rights reserved.
 //
 
-#import "AlbumFilterUtil.h"
+#import "AlbumFilterManager.h"
 #import "ColorConstant.h"
 #import "InstaFilters.h"
 #import <GPUImage.h>
 
-@implementation AlbumFilterUtil
+@implementation AlbumFilterManager
 
-static AlbumFilterUtil *_sharedInstance = nil;
-
-+ (AlbumFilterUtil *)sharedInstance {
++ (instancetype)shareManager {
+    static AlbumFilterManager *_shareManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInstance = [[AlbumFilterUtil alloc] init];
+        _shareManager = [[AlbumFilterManager alloc] init];
     });
-    return _sharedInstance;
+    return _shareManager;
 }
 
 - (GPUImageColormatrixFilterType)colormatrixFilterTypeByIndex:(NSInteger)index {
     
     GPUImageColormatrixFilterType filterType = GPUImageColormatrixFilterTypeORI;
-    
     switch (index) {
         case 0:
             filterType = GPUImageColormatrixFilterTypeORI;
             break;
         case 1:
-            filterType = GPUImageColormatrixFilterTypeFUGU;
+            filterType = GPUImageColormatrixFilterTypePrague;
             break;
         case 2:
-            filterType = GPUImageColormatrixFilterTypeDANYA;
-            break;
-        case 3:
             filterType = GPUImageColormatrixFilterTypeHEIBAI;
             break;
+        case 3:
+            filterType = GPUImageColormatrixFilterTypeBright;
+            break;
         case 4:
-            filterType = GPUImageColormatrixFilterTypeLANGMAN;
+            filterType = GPUImageColormatrixFilterTypeWarm;
             break;
         case 5:
-            filterType = GPUImageColormatrixFilterTypeJIUHONG;
+            filterType = GPUImageColormatrixFilterTypeFleeting;
             break;
         case 6:
-            filterType = GPUImageColormatrixFilterTypeRUISE;
+            filterType = GPUImageColormatrixFilterTypeFilm;
             break;
         case 7:
-            filterType = GPUImageColormatrixFilterTypeGETE;
+            filterType = GPUImageColormatrixFilterTypeDelicacy;
             break;
         case 8:
-            filterType = GPUImageColormatrixFilterTypeLANDIAO;
+            filterType = GPUImageColormatrixFilterTypeGirl;
             break;
         case 9:
-            filterType = GPUImageColormatrixFilterTypeQINGNING;
+            filterType = GPUImageColormatrixFilterTypeDusk;
             break;
         case 10:
-            filterType = GPUImageColormatrixFilterTypeGUANGYUN;
+            filterType = GPUImageColormatrixFilterTypeTimes;
             break;
         case 11:
-            filterType = GPUImageColormatrixFilterTypeMENGHUAN;
+            filterType = GPUImageColormatrixFilterTypeWhiteDew;
             break;
         case 12:
-            filterType = GPUImageColormatrixFilterTypeYESE;
+            filterType = GPUImageColormatrixFilterTypeVienna;
             break;
         case 13:
-            filterType = GPUImageColormatrixFilterTypeLOMO;
+            filterType = GPUImageColormatrixFilterTypeYESE;
             break;
         default:
             break;
@@ -77,45 +75,46 @@ static AlbumFilterUtil *_sharedInstance = nil;
 }
 
 - (NSString *)getFilterName:(GPUImageColormatrixFilterType)filterType {
+    
     NSString *title = @"";
     switch (filterType) {
         case GPUImageColormatrixFilterTypeORI:
             title = @"原图";
             break;
-        case GPUImageColormatrixFilterTypeLOMO:
+        case GPUImageColormatrixFilterTypePrague:
             title = @"布拉格";
             break;
         case GPUImageColormatrixFilterTypeHEIBAI:
             title = @"黑白";
             break;
-        case GPUImageColormatrixFilterTypeFUGU:
+        case GPUImageColormatrixFilterTypeBright:
             title = @"鲜亮";
             break;
-        case GPUImageColormatrixFilterTypeGETE:
+        case GPUImageColormatrixFilterTypeWarm:
             title = @"暖暖";
             break;
-        case GPUImageColormatrixFilterTypeRUISE:
+        case GPUImageColormatrixFilterTypeFleeting:
             title = @"流年";
             break;
-        case GPUImageColormatrixFilterTypeDANYA:
+        case GPUImageColormatrixFilterTypeFilm:
             title = @"胶片";
             break;
-        case GPUImageColormatrixFilterTypeJIUHONG:
+        case GPUImageColormatrixFilterTypeDelicacy:
             title = @"美食";
             break;
-        case GPUImageColormatrixFilterTypeQINGNING:
+        case GPUImageColormatrixFilterTypeGirl:
             title = @"少女";
             break;
-        case GPUImageColormatrixFilterTypeLANGMAN:
+        case GPUImageColormatrixFilterTypeDusk:
             title = @"薄暮";
             break;
-        case GPUImageColormatrixFilterTypeGUANGYUN:
+        case GPUImageColormatrixFilterTypeTimes:
             title = @"时光";
             break;
-        case GPUImageColormatrixFilterTypeLANDIAO:
+        case GPUImageColormatrixFilterTypeWhiteDew:
             title = @"白露";
             break;
-        case GPUImageColormatrixFilterTypeMENGHUAN:
+        case GPUImageColormatrixFilterTypeVienna:
             title = @"维也纳";
             break;
         case GPUImageColormatrixFilterTypeYESE:
@@ -127,7 +126,8 @@ static AlbumFilterUtil *_sharedInstance = nil;
     return title;
 }
 
-- (UIImage *)imageByFilteringImage:(UIImage *)inImage filterType:(GPUImageColormatrixFilterType)filterType {
+- (UIImage *)imageByFilteringImage:(UIImage *)inImage
+                        filterType:(GPUImageColormatrixFilterType)filterType {
     
     IFImageFilter *filter = [[IFImageFilter alloc] init];
     
@@ -194,7 +194,8 @@ static AlbumFilterUtil *_sharedInstance = nil;
     
 }
 
-- (UIImage *)imageWithImage:(UIImage *)inImage withColorMatrix:(const float *)colorMatrix {
+- (UIImage *)imageWithImage:(UIImage *)inImage
+                colorMatrix:(const float *)colorMatrix {
     
     unsigned char *imgPixel = RequestImagePixelData(inImage);
     CGImageRef inImageRef = [inImage CGImage];
@@ -204,7 +205,8 @@ static AlbumFilterUtil *_sharedInstance = nil;
     int wOff = 0;
     int pixOff = 0;
     
-    for(GLuint y = 0; y< h; y++) {//双层循环按照长宽的像素个数迭代每个像素点
+    // 双层循环按照长宽的像素个数迭代每个像素点
+    for (GLuint y = 0; y< h; y++) {
         
         pixOff = wOff;
         for (GLuint x = 0; x<w; x++) {
@@ -214,7 +216,7 @@ static AlbumFilterUtil *_sharedInstance = nil;
             int alpha = (unsigned char)imgPixel[pixOff+3];
             changeRGBA(&red, &green, &blue, &alpha, colorMatrix);
             
-            //回写数据
+            // 回写数据
             imgPixel[pixOff] = red;
             imgPixel[pixOff+1] = green;
             imgPixel[pixOff+2] = blue;
@@ -236,7 +238,8 @@ static AlbumFilterUtil *_sharedInstance = nil;
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
     CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
     
-    CGImageRef imageRef = CGImageCreate(w, h, bitsPerComponent, bitsPerPixel, bytesPerRow,colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);//创建要输出的图像
+    // 创建要输出的图像
+    CGImageRef imageRef = CGImageCreate(w, h, bitsPerComponent, bitsPerPixel, bytesPerRow,colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
     
     UIImage *myImage = [UIImage imageWithCGImage:imageRef];
     
@@ -258,7 +261,7 @@ static CGContextRef CreateRGBABitmapContext (CGImageRef inImage) {
     size_t pixelsWide = CGImageGetWidth(inImage); //获取横向的像素点的个数
     size_t pixelsHigh = CGImageGetHeight(inImage); //纵向
     bitmapBytesPerRow = (pixelsWide * 4); //每一行的像素点占用的字节数，每个像素点的ARGB四个通道各占8个bit(0-255)的空间
-    bitmapByteCount	= (bitmapBytesPerRow * pixelsHigh); //计算整张图占用的字节数
+    bitmapByteCount    = (bitmapBytesPerRow * pixelsHigh); //计算整张图占用的字节数
     colorSpace = CGColorSpaceCreateDeviceRGB();//创建依赖于设备的RGB通道
     bitmapData = malloc(bitmapByteCount); //分配足够容纳图片字节数的内存空间
     context = CGBitmapContextCreate (bitmapData, pixelsWide, pixelsHigh, 8, bitmapBytesPerRow, colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
@@ -281,7 +284,7 @@ static unsigned char *RequestImagePixelData(UIImage *inImage) {
     return data;
 }
 
-//修改RGB的值
+// 修改RGB的值
 static void changeRGBA(int *red,int *green,int *blue,int *alpha, const float* f) {
     
     int redV = *red;
